@@ -1,0 +1,12 @@
+<h1>Productos en tu carrito:</h1>
+    {{#each products}}
+        <div class="product-card">
+        <h4>{{this.nombre}}</h4>
+        <p id="precio-producto">Precio: ${{this.precio}}</p>
+        <button onclick="deleteItem('{{this._id}}')">Eliminar producto del carrito</button>
+    </div>
+    {{/each}}
+
+
+<input type="button" onclick="confirmSell()" value="Confirmar compra">
+<script src="/carrito.js"></script>
