@@ -14,7 +14,6 @@ const ExtractJWT = jwt.ExtractJwt;
 const initializePassport= ()=>{
     passport.use("register",new LocalStrategy({passReqToCallback:true,usernameField:"email",session:false},async(req,username,password,done)=>{
         let {first_name,last_name,email,phone} = req.body;
-        console.log(req.file)
         try{
             if(!req.file) return done(null,false,{message:`Avatar couldn't upload`});
             let user = await userService.getBy({email:email});
